@@ -85,12 +85,12 @@ WSGI_APPLICATION = 'Portfolio_Website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # DATABASES = {
@@ -104,17 +104,6 @@ WSGI_APPLICATION = 'Portfolio_Website.wsgi.application'
 #     }
 # }
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ.get("NAME"),
-            'HOST': os.environ.get("HOST"),
-            'PORT': os.environ.get("PORT"),
-            'USER': os.environ.get("USER"),
-            'PASSWORD': os.environ.get("PASSWORD"),
-        }
-    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
