@@ -1,0 +1,75 @@
+{% load static %}
+
+{% if personalDetails.cover_picture %}
+    <header class="header" style="background-image: url({{personalDetails.cover_picture.url}})">
+    <div class="container">
+        <ul class="social-icons pt-3">
+{#            <li class="social-item"><a class="social-link text-light" href="{{socialLinks.facebook}}"><i class="ti-facebook" aria-hidden="true"></i></a></li>#}
+{#            <li class="social-item"><a class="social-link text-light" href="{{socialLinks.twitter}}"><i class="ti-twitter" aria-hidden="true"></i></a></li>#}
+{#            <li class="social-item"><a class="social-link text-light" href="{{socialLinks.instagram}}"><i class="ti-linkedin" aria-hidden="true"></i></a></li>#}
+            <li class="social-item"><a class="social-link text-light" href="{{socialLinks.github}}"><i class="ti-github" aria-hidden="true"></i></a></li>
+        </ul>  
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% else %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="header-content">
+            <h4 class="header-subtitle" >Hello, I am</h4>
+            <h1 class="header-title">{{personalDetails.first_name}} {{personalDetails.second_name}}</h1>
+            <h6 class="header-mono" >{{personalDetails.profession}}</h6>
+            <a class="btn btn-primary btn-rounded" href="{% url 'dwonloadResume' %}"><i class="ti-printer pr-2"></i>Download My CV</a>
+        </div>
+    </div>
+</header>
+{% else %}
+    <header class="header">
+    <div class="container">
+        <ul class="social-icons pt-3">
+{#            <li class="social-item"><a class="social-link text-light" href="{{socialLinks.facebook}}"><i class="ti-facebook" aria-hidden="true"></i></a></li>#}
+{#            <li class="social-item"><a class="social-link text-light" href="{{socialLinks.twitter}}"><i class="ti-twitter" aria-hidden="true"></i></a></li>#}
+{#            <li class="social-item"><a class="social-link text-light" href="{{socialLinks.instagram}}"><i class="ti-linkedin" aria-hidden="true"></i></a></li>#}
+            <li class="social-item"><a class="social-link text-light" href="{{socialLinks.github}}"><i class="ti-github" aria-hidden="true"></i></a></li>
+        </ul>  
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% else %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="header-content">
+            <h4 class="header-subtitle" >Hello, I am</h4>
+            <h1 class="header-title">{{personalDetails.first_name}} {{personalDetails.second_name}}</h1>
+            <h6 class="header-mono" >{{personalDetails.profession}}</h6>
+            <a class="btn btn-primary btn-rounded" href="{% url 'dwonloadResume' %}"><i class="ti-printer pr-2"></i>Download My CV</a>
+        </div>
+    </div>
+</header>
+{% endif %}

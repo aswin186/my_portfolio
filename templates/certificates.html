@@ -1,0 +1,26 @@
+{% load static %}
+
+<section class="section bg-custom-gray" id="certificates">
+    <div class="container">
+        <h1 class="mb-5"><span class="text-danger">My</span> Certificates</h1>
+        <div class="portfolio">
+            <div class="portfolio-container"> 
+
+                {% for c in personalDetails.certificates_set.all %}
+                <div class="col-md-6 col-lg-4 web new">
+                    <div class="portfolio-item">
+                        <img src="{{c.uploaded_image.url}}" class="img-fluid" alt="Failed to load" style="width: 350px; height: 260px">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/web-1.jpg" ></a>
+                            <div class="text-holder">
+                                <h6 class="title">{{c.certificate_name}}</h6>
+                                {% comment %} <p class="subtitle">Expedita corporis doloremque velit in totam!</p> {% endcomment %}
+                            </div>
+                        </div>   
+                    </div>             
+                </div> 
+                {% endfor %}
+            </div> 
+        </div>  
+    </div>            
+</section>

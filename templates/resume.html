@@ -1,0 +1,80 @@
+{% load static %}
+
+<section class="section" id="resume">
+    <div class="container">
+        <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="mt-2">
+                            <h4>Projects</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    {% for p in personalDetails.projects_set.all %}
+                    <div class="card-body">
+                        <h6 class="title text-danger">{{p.project_name}}</h6>
+                        <P class="subtitle">{{p.project_description}}</P>
+                        <a href="{{p.link}}" class="btn-primary w-100">Link to Demo</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="mt-2">
+                            <h4>Education</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    {% for e in personalDetails.education_set.all%}
+                    <div class="card-body">
+                        <h6 class="title text-danger">{{e.course_name}}</h6>
+                        <P>{{e.start_date.year}} - {{e.end_date.year}}</P>
+                        <P>{{e.institute_name}}</p>
+                        <p>{{e.university_name}}</P>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="pull-left">
+                            <h4 class="mt-2">Skills</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    {% for s in personalDetails.skills_set.all %}
+                    <div class="card-body pb-2">
+                       <h6>{{s.skills}}</h6>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{s.percentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="card">
+                   <div class="card-header">
+                        <div class="pull-left">
+                            <h4 class="mt-2">Languages</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    {% for l in personalDetails.languages_set.all %}
+                    <div class="card-body pb-2">
+                       <h6>{{l.language_name}}</h6>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{l.percentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

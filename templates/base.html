@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Personal portfolio">
+    <meta name="author" content="Aswin">
+    <title>Aswin Portfolio</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + JohnDoe main styles -->
+	<link rel="stylesheet" href="{% static 'assets/css/johndoe.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+
+        {% include 'header.html' %}
+        <main>
+            {% block content %}
+
+            {% endblock %}
+        </main>
+        {% include 'footer.html' %}
+
+<!-- core  -->
+<script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+<script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+<!-- bootstrap 3 affix -->
+<script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+<!-- Isotope  -->
+<script src="{% static 'assets/vendors/isotope/isotope.pkgd.js' %}"></script>
+
+<!-- Google mpas -->
+{% comment %} <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script> {% endcomment %}
+
+<!-- JohnDoe js -->
+<script src="{% static 'assets/js/johndoe.js' %}"></script>
+
+</body>
+</html>
