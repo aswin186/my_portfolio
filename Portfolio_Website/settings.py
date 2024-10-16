@@ -14,8 +14,7 @@ from pathlib import Path
 import os
 
 from dotenv import load_dotenv
-
-# import dj_database_url
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,25 +92,28 @@ WSGI_APPLICATION = 'Portfolio_Website.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'portfoliodb',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '',
-    }
-}
-
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "OPTIONS": {
-#             "read_default_file": "..\Portfolio_Website\portfoliodb.cnf",
-#         },
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'portfoliodb',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#         'USER': 'root',
+#         'PASSWORD': '',
 #     }
 # }
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get("NAME"),
+            'HOST': os.environ.get("HOST"),
+            'PORT': os.environ.get("PORT"),
+            'USER': os.environ.get("USER"),
+            'PASSWORD': os.environ.get("PASSWORD"),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
