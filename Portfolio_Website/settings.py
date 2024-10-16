@@ -35,7 +35,7 @@ DEBUG = False
 # ALLOWED_HOSTS = []
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'aswinsubramanian.pythonanywhere.com']
-CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
+CSRF_TRUSTED_ORIGINS = ['https://aswinsubramanian.pythonanywhere.com']
 
 # Application definition
 
